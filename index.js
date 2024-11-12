@@ -2,12 +2,13 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const OpenAI = require('openai');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
 const openai = new OpenAI({
-  apiKey: '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'
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function getTextFromUrl(url) {
